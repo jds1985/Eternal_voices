@@ -17,17 +17,27 @@
     html,body{height:100%}
     body{margin:0; color:var(--ivory); font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; background:#000}
 
-    /* ===== Background ===== */
     .page{min-height:100svh; position:relative; overflow-x:hidden;}
-    .bg-img{position:fixed; inset:0; z-index:-2; background-size:cover; background-position:center; background-attachment:fixed; filter:saturate(110%) contrast(105%);}
-    .bg-overlay{position:fixed; inset:0; z-index:-1; pointer-events:none;
+    .bg-img{
+      position:fixed; inset:0; z-index:-2;
+      background-image:url('https://cdn.openai.com/tmp/jim_angel_bg.jpg'); /* your angel wings background */
+      background-size:cover; background-position:center; background-attachment:fixed;
+      filter:saturate(110%) contrast(105%);
+    }
+    .bg-overlay{
+      position:fixed; inset:0; z-index:-1; pointer-events:none;
       background: radial-gradient(1200px 700px at 50% -10%, rgba(255,230,170,.35), transparent 60%),
                   linear-gradient(180deg, rgba(0,0,0,.48) 0%, rgba(0,0,0,.36) 45%, rgba(0,0,0,.55) 100%);
     }
 
     .wrap{width:min(1100px, 92vw); margin:auto}
     header{display:flex; align-items:center; justify-content:space-between; padding:18px 0}
-    .brand img{width:72px; height:auto; display:block; cursor:pointer; filter: drop-shadow(0 6px 16px rgba(0,0,0,.35));}
+    .brand img{
+      width:72px; height:auto; display:block; cursor:pointer;
+      filter: drop-shadow(0 0 20px rgba(255,220,150,0.7));
+      transition:filter .3s ease;
+    }
+    .brand img:hover{filter:drop-shadow(0 0 28px rgba(255,230,180,0.9));}
 
     .hero{padding:84px 0 40px; text-align:center}
     .title{font-family:'Playfair Display',serif; font-weight:700; font-size:clamp(40px,6vw,82px); line-height:1.08; margin:0 0 10px; text-shadow:0 6px 24px rgba(0,0,0,.45)}
@@ -71,7 +81,6 @@
   <div id="bgImg" class="bg-img" title="Click anywhere on the background to change it"></div>
   <div class="bg-overlay"></div>
 
-  <!-- Hidden file pickers -->
   <input id="bgPicker" type="file" accept="image/*" style="display:none" />
   <input id="logoPicker" type="file" accept="image/*" style="display:none" />
 
@@ -160,7 +169,6 @@
 
     const savedBg = localStorage.getItem(BG_KEY);
     if(savedBg){ bgDiv.style.backgroundImage = `url(${savedBg})`; }
-    else { bgDiv.style.backgroundImage = "url('/assets/ev-sky.jpg')"; }
 
     const savedLogo = localStorage.getItem(LOGO_KEY);
     if(savedLogo){ logoImg.src = savedLogo; }
@@ -193,7 +201,7 @@
       e.preventDefault();
       localStorage.removeItem(BG_KEY);
       localStorage.removeItem(LOGO_KEY);
-      bgDiv.style.backgroundImage = "url('/assets/ev-sky.jpg')";
+      bgDiv.style.backgroundImage = "url('https://cdn.openai.com/tmp/jim_angel_bg.jpg')";
       logoImg.src = '/assets/ciphertech-logo.png';
     });
 
