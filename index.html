@@ -1,152 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Eternal Voices™ – A New Kind of Remembrance</title>
-  <meta name="description" content="Eternal Voices™ by CipherTech. A premium memorial experience that lets families hear a loved one’s voice again — reconstructed with care, authenticity, and meaning." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
   <style>
-    :root {
-      --gold:#e8c785; --gold-deep:#caa35b; --ivory:#f6f2ea;
-      --violet:#5a3796; --violet-deep:#3d256c; --glass: rgba(15,12,18,.46);
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+      color: #fff;
+      background: url('wings-bg.jpg') no-repeat center center fixed;
+      background-size: cover;
+      text-align: center;
     }
-    *{box-sizing:border-box}
-    html,body{height:100%;margin:0;font-family:'Inter',sans-serif;color:var(--ivory);background:#000;overflow-x:hidden;}
-    .bg-img{position:fixed;inset:0;z-index:-2;background-size:cover;background-position:center;background-attachment:fixed;}
-    .bg-overlay{position:fixed;inset:0;z-index:-1;background:radial-gradient(1200px 700px at 50% -10%,rgba(255,230,170,.35),transparent 60%),linear-gradient(180deg,rgba(0,0,0,.48)0%,rgba(0,0,0,.36)45%,rgba(0,0,0,.55)100%);}
-    .wrap{width:min(1100px,92vw);margin:auto;}
-    header{display:flex;justify-content:space-between;align-items:center;padding:18px 0;}
-    .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ivory);}
-    .brand-stack{display:flex;flex-direction:column;align-items:flex-start;}
-    .brand-text{font-weight:800;letter-spacing:.6px;font-size:14px;}
-    #logoImg{width:72px;height:auto;cursor:pointer;filter:drop-shadow(0 6px 16px rgba(0,0,0,.35));}
-    .hero{text-align:center;padding:80px 0 40px;}
-    .title{font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(40px,6vw,82px);margin:0 0 10px;text-shadow:0 6px 24px rgba(0,0,0,.45);}
-    .tag{font-weight:600;font-size:clamp(16px,2.2vw,22px);margin:0 0 26px;}
-    .cta{display:inline-block;padding:14px 24px;border-radius:999px;font-weight:800;text-decoration:none;color:#fff;background:linear-gradient(135deg,var(--violet),var(--violet-deep));box-shadow:0 8px 24px rgba(28,14,60,.35),inset 0 0 0 1px rgba(255,255,255,.08);}
-    .cta.gold{background:linear-gradient(135deg,var(--gold),var(--gold-deep));color:#251706;}
-    .cta:hover{filter:brightness(1.06);}
-    section{padding:34px 0;}
-    .card{background:var(--glass);border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:22px;backdrop-filter:blur(8px);}
-    .grid-2{display:grid;grid-template-columns:1fr;gap:26px;}
-    @media(min-width:900px){.grid-2{grid-template-columns:1.1fr .9fr;}}
-    .steps{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;}
-    @media(min-width:760px){.steps{grid-template-columns:repeat(4,1fr);}}
-    .step{border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:14px;text-align:center;background:rgba(10,8,12,.42);}
-    .step .icon{width:40px;height:40px;margin:6px auto 10px;display:grid;place-items:center;border-radius:50%;background:rgba(255,255,255,.07);}
-    ul.check{list-style:none;padding:0;margin:0;}
-    ul.check li{display:flex;gap:10px;align-items:flex-start;margin:10px 0;font-size:17px;}
-    .dot{width:10px;height:10px;border-radius:50%;margin-top:8px;background:radial-gradient(circle at 40% 40%,#ffe9b6,var(--gold)70%,var(--gold-deep)100%);box-shadow:0 0 10px rgba(232,199,133,.6);}
-    footer{text-align:center;opacity:.9;font-size:14px;padding:36px 0 80px;}
-    .hint{position:fixed;right:14px;bottom:14px;background:rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.12);color:#fff;padding:10px 12px;border-radius:12px;font-size:12px;backdrop-filter:blur(6px);}
+
+    header {
+      position: absolute;
+      top: 20px;
+      left: 30px;
+    }
+
+    header img {
+      width: 90px;
+      height: auto;
+    }
+
+    .overlay {
+      background: rgba(0, 0, 0, 0.35);
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    main {
+      position: relative;
+      z-index: 1;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 0 20px;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      text-shadow: 0 6px 20px rgba(0,0,0,0.6);
+    }
+
+    h2 {
+      font-weight: 400;
+      font-size: 1.4rem;
+      margin-bottom: 40px;
+      opacity: 0.95;
+      text-shadow: 0 4px 16px rgba(0,0,0,0.5);
+    }
+
+    a.cta {
+      display: inline-block;
+      padding: 14px 28px;
+      background: linear-gradient(135deg, #e8c785, #caa35b);
+      color: #2b1c05;
+      text-decoration: none;
+      border-radius: 999px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      font-size: 1rem;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    a.cta:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 28px rgba(0,0,0,0.45);
+    }
+
+    footer {
+      position: absolute;
+      bottom: 20px;
+      width: 100%;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.8);
+    }
   </style>
 </head>
 <body>
-  <div id="bgImg" class="bg-img"></div>
-  <div class="bg-overlay"></div>
+  <div class="overlay"></div>
+  
+  <header>
+    <img src="ciphertech-logo.png" alt="CipherTech Logo">
+  </header>
 
-  <input id="bgPicker" type="file" accept="image/*" style="display:none">
-  <input id="logoPicker" type="file" accept="image/*" style="display:none">
-
-  <main class="page">
-    <div class="wrap">
-      <header>
-        <a class="brand" href="#top">
-          <div class="brand-stack">
-            <img id="logoImg" src="/assets/ciphertech-logo.png" alt="CipherTech Logo" title="Click to change logo">
-            <span class="brand-text">CIPHERTECH</span>
-          </div>
-        </a>
-        <nav><a class="cta" href="#partner">Request Partnership</a></nav>
-      </header>
-
-      <section class="hero" id="top">
-        <h1 class="title">Eternal Voices™</h1>
-        <p class="tag">A New Kind of Remembrance</p>
-        <a class="cta" href="#partner">Request Partnership</a>
-      </section>
-
-      <section>
-        <div class="grid-2">
-          <div class="card">
-            <h2>What It Is</h2>
-            <p>Eternal Voices™ lets families hear a loved one’s voice again — reconstructed with care, authenticity, and meaning. A guided, private memorial experience powered by secure AI technology from CipherTech.</p>
-          </div>
-          <div class="card">
-            <h2>How It Works</h2>
-            <div class="steps">
-              <div class="step"><div class="icon">🎙️</div><div>1. Family provides a short audio clip (voicemail, video, or recording).</div></div>
-              <div class="step"><div class="icon">💠</div><div>2. We rebuild a natural voice model with secure, compassionate AI.</div></div>
-              <div class="step"><div class="icon">📝</div><div>3. A personalized message is scripted with the family’s guidance.</div></div>
-              <div class="step"><div class="icon">🎧</div><div>4. Delivery as an MP3 keepsake, scheduled call, or played during the service.</div></div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="partner">
-        <div class="card" style="text-align:center">
-          <h2>Join the Eternal Voices Partner Program</h2>
-          <p>We’re selecting only two independent funeral homes per state during our founding rollout. Once a state is full, new spots will open later.</p>
-          <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:10px">
-            <a class="cta" href="mailto:ciphertechai1@gmail.com?subject=Eternal%20Voices%20–%20Partnership%20Request&body=Hello%20CipherTech%2C%0D%0A%0D%0AWe%20are%20interested%20in%20becoming%20an%20Eternal%20Voices%E2%84%A2%20partner.%20Please%20contact%20us%20with%20next%20steps.%0D%0A%0D%0A-%20Name%3A%0D%0A-%20Funeral%20Home%3A%0D%0A-%20City%2FState%3A%0D%0A-%20Phone%3A%0D%0A">Email Partnership Request</a>
-            <a class="cta gold" href="#top">Back to Top</a>
-          </div>
-        </div>
-      </section>
-
-      <footer>© <span id="year"></span> CipherTech. Eternal Voices™ is a trademark of CipherTech.</footer>
-    </div>
+  <main>
+    <h1>Eternal Voices™</h1>
+    <h2>A New Kind of Remembrance</h2>
+    <a class="cta" href="mailto:ciphertechai1@gmail.com?subject=Eternal%20Voices%20–%20Partnership%20Request&body=Hello%20CipherTech%2C%0D%0A%0D%0AWe%20are%20interested%20in%20becoming%20an%20Eternal%20Voices%E2%84%A2%20partner.%20Please%20contact%20us%20with%20next%20steps.%0D%0A%0D%0A-%20Name%3A%0D%0A-%20Funeral%20Home%3A%0D%0A-%20City%2FState%3A%0D%0A-%20Phone%3A%0D%0A">Email Partnership Request</a>
   </main>
 
-  <div class="hint">Click <b>background</b> to change it • Click <b>logo</b> to change it</div>
+  <footer>
+    © <span id="year"></span> CipherTech. Eternal Voices™ is a trademark of CipherTech.
+  </footer>
 
   <script>
-    const bgImg=document.getElementById('bgImg');
-    const logoImg=document.getElementById('logoImg');
-    const bgPicker=document.getElementById('bgPicker');
-    const logoPicker=document.getElementById('logoPicker');
-
-    async function uploadFile(file,type){
-      const formData=new FormData();
-      formData.append('file',file);
-      formData.append('type',type);
-      const res=await fetch('/api/upload',{method:'POST',body:formData});
-      const data=await res.json();
-      return data.url;
-    }
-
-    bgImg.addEventListener('click',()=>bgPicker.click());
-    logoImg.addEventListener('click',()=>logoPicker.click());
-
-    bgPicker.addEventListener('change',async e=>{
-      const file=e.target.files[0];
-      if(!file) return;
-      const url=await uploadFile(file,'background');
-      bgImg.style.backgroundImage=`url(${url})`;
-      localStorage.setItem('ev_bg_url',url);
-    });
-
-    logoPicker.addEventListener('change',async e=>{
-      const file=e.target.files[0];
-      if(!file) return;
-      const url=await uploadFile(file,'logo');
-      logoImg.src=url;
-      localStorage.setItem('ev_logo_url',url);
-    });
-
-    const savedBg=localStorage.getItem('ev_bg_url');
-    if(savedBg) bgImg.style.backgroundImage=`url(${savedBg})`;
-    else bgImg.style.backgroundImage=\"url('/assets/ev-sky.jpg')\";
-
-    const savedLogo=localStorage.getItem('ev_logo_url');
-    if(savedLogo) logoImg.src=savedLogo;
-
-    document.getElementById('year').textContent=new Date().getFullYear();
+    document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
