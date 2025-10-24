@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Eternal Voices™ Partner Order Form – CipherTech</title>
+  <meta name="description" content="Eternal Voices™ Partner Order Form by CipherTech. Download, fill, and submit your partner order form securely." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --gold:#e8c785; --gold-deep:#caa35b; --ivory:#f6f2ea; --ink:#0b0a10;
+      --violet:#5a3796; --violet-deep:#3d256c; --glass: rgba(15,12,18,.46);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--ivory);background:#000}
+
+    .page{min-height:100svh;position:relative;overflow-x:hidden}
+    .bg-img{position:fixed;inset:0;z-index:-2;background-size:cover;background-position:center;background-attachment:fixed;filter:saturate(110%) contrast(105%)}
+    .bg-overlay{position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(1200px 700px at 50% -10%,rgba(255,230,170,.35),transparent 60%),linear-gradient(180deg,rgba(0,0,0,.48) 0%,rgba(0,0,0,.36) 45%,rgba(0,0,0,.55) 100%)}
+
+    .wrap{width:min(900px,92vw);margin:auto;padding:60px 0}
+    header{display:flex;align-items:center;justify-content:space-between;margin-bottom:40px}
+    .brand img{width:72px;filter:drop-shadow(0 0 20px rgba(255,220,150,0.7));cursor:pointer}
+    .brand img:hover{filter:drop-shadow(0 0 28px rgba(255,230,180,0.9))}
+    h1{font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(36px,5vw,64px);margin:0 0 12px;text-align:center;text-shadow:0 6px 24px rgba(0,0,0,.45)}
+    p{font-size:18px;line-height:1.65;opacity:.96;text-align:center;margin:0 auto 28px;max-width:700px}
+    .cta{display:inline-block;padding:14px 26px;border-radius:999px;font-weight:800;text-decoration:none;color:#251706;background:linear-gradient(135deg,var(--gold),var(--gold-deep));box-shadow:0 8px 24px rgba(28,14,60,.35),inset 0 0 0 1px rgba(255,255,255,.08);margin:10px}
+    .cta:hover{filter:brightness(1.06)}
+    .card{background:var(--glass);border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:26px;text-align:center;backdrop-filter:blur(8px);margin-top:30px}
+    footer{text-align:center;padding:40px 0 80px;font-size:14px;opacity:.9}
+    footer a{color:var(--ivory);text-decoration:none}
+  </style>
+</head>
+<body>
+  <div id="bgImg" class="bg-img" style="background-image:url('https://cdn.openai.com/tmp/jim_angel_bg.jpg')"></div>
+  <div class="bg-overlay"></div>
+  <input id="bgPicker" type="file" accept="image/*" style="display:none" />
+  <input id="logoPicker" type="file" accept="image/*" style="display:none" />
+
+  <main class="page">
+    <div class="wrap">
+      <header>
+        <a class="brand" href="index.html">
+          <img id="logoImg" src="/assets/ciphertech-logo.png" alt="CipherTech Logo" title="Click to change logo" />
+        </a>
+      </header>
+
+      <h1>Eternal Voices™ Partner Order Form</h1>
+      <p>Partners may download, complete, and submit this secure fillable form to order Eternal Voices recreations. Please return completed forms to <a href="mailto:ciphertechai1@gmail.com" style="color:var(--gold)">ciphertechai1@gmail.com</a>.</p>
+
+      <div class="card">
+        <a class="cta" href="CipherTech_Eternal_Voices_Partner_Order_Form_FINAL2.pdf" download>⬇️ Download Fillable PDF Form</a>
+        <a class="cta" href="mailto:ciphertechai1@gmail.com?subject=Completed%20Eternal%20Voices%20Order%20Form">📤 Submit via Email</a>
+        <a class="cta" href="index.html">🏠 Back to Home</a>
+      </div>
+
+      <footer>
+        © <span id="year"></span> CipherTech — Eternal Voices™ Partner Program • <a href="https://eternal-voices.vercel.app">eternal-voices.vercel.app</a>
+      </footer>
+    </div>
+  </main>
+
+  <script>
+    const BG_KEY='ev_bg_dataurl',LOGO_KEY='ev_logo_dataurl';
+    const bgDiv=document.getElementById('bgImg'),logoImg=document.getElementById('logoImg');
+    const bgPicker=document.getElementById('bgPicker'),logoPicker=document.getElementById('logoPicker');
+    const savedBg=localStorage.getItem(BG_KEY); if(savedBg){bgDiv.style.backgroundImage=`url(${savedBg})`;}
+    const savedLogo=localStorage.getItem(LOGO_KEY); if(savedLogo){logoImg.src=savedLogo;}
+    document.addEventListener('click',e=>{const w=e.target.closest('header,.card,a');if(!w)bgPicker.click();});
+    bgPicker.addEventListener('change',async e=>{const f=e.target.files&&e.target.files[0];if(!f)return;const d=await fileToDataURL(f);bgDiv.style.backgroundImage=`url(${d})`;localStorage.setItem(BG_KEY,d);bgPicker.value='';});
+    logoImg.addEventListener('click',()=>logoPicker.click());
+    logoPicker.addEventListener('change',async e=>{const f=e.target.files&&e.target.files[0];if(!f)return;const d=await fileToDataURL(f);logoImg.src=d;localStorage.setItem(LOGO_KEY,d);logoPicker.value='';});
+    function fileToDataURL(f){return new Promise((res,rej)=>{const r=new FileReader();r.onload=()=>res(r.result);r.onerror=rej;r.readAsDataURL(f);});}
+    document.getElementById('year').textContent=new Date().getFullYear();
+  </script>
+</body>
+</html>
