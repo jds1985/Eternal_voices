@@ -1,66 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Partner Order Form – Eternal Voices™ | CipherTech</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Eternal Voices™ – Partner Checkout</title>
+  <meta name="description" content="Eternal Voices™ Partner Program by CipherTech – Secure Partner Checkout and Order Form." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
   <style>
     :root{
-      --gold:#e8c785; --gold-deep:#caa35b; --ivory:#f6f2ea; --violet:#5a3796; --violet-deep:#3d256c; --glass:rgba(15,12,18,.46);
+      --gold:#e8c785; --gold-deep:#caa35b; --ivory:#f6f2ea; --ink:#0b0a10;
+      --violet:#5a3796; --violet-deep:#3d256c; --glass: rgba(15,12,18,.46);
     }
     *{box-sizing:border-box}
-    html,body{height:100%; margin:0; font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; color:var(--ivory); background:#000;}
-    .page{min-height:100svh; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:40px 20px; position:relative;}
-    .bg-img{
-      position:fixed; inset:0; z-index:-2;
-      background-image:url('https://cdn.openai.com/tmp/jim_angel_bg.jpg');
-      background-size:cover; background-position:center; filter:saturate(110%) contrast(105%);
-    }
-    .bg-overlay{
-      position:fixed; inset:0; z-index:-1;
-      background:linear-gradient(180deg,rgba(0,0,0,.6) 0%,rgba(0,0,0,.7) 100%);
-    }
-    header{position:absolute; top:20px; left:0; right:0; display:flex; align-items:center; justify-content:space-between; width:min(1100px,92vw); margin:auto;}
-    .brand img{width:72px; height:auto; display:block; filter:drop-shadow(0 0 20px rgba(255,220,150,0.7));}
-    a.cta{
-      display:inline-block; padding:14px 26px; border-radius:999px; font-weight:800; letter-spacing:.3px; text-decoration:none;
-      background:linear-gradient(135deg,var(--gold),var(--gold-deep)); color:#251706; box-shadow:0 0 20px rgba(232,199,133,.4);
-      transition:all .3s ease;
-    }
-    a.cta:hover{filter:brightness(1.08); box-shadow:0 0 26px rgba(232,199,133,.7);}
-    .card{
-      background:var(--glass); border:1px solid rgba(255,255,255,.08); border-radius:20px; padding:40px 28px; max-width:700px; text-align:center;
-      backdrop-filter:blur(8px); box-shadow:0 0 30px rgba(0,0,0,.4);
-    }
-    h1{font-family:'Playfair Display',serif; font-size:clamp(32px,5vw,56px); font-weight:700; margin-bottom:10px; color:var(--gold);}
-    p{font-size:18px; line-height:1.6; opacity:.95; margin:12px 0 32px;}
-    footer{margin-top:60px; font-size:14px; opacity:.8;}
+    body{margin:0; color:var(--ivory); font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; background:#000;}
+    .page{min-height:100svh; position:relative; overflow-x:hidden;}
+    .bg-overlay{position:fixed; inset:0; z-index:-1; background: radial-gradient(1200px 700px at 50% -10%, rgba(255,230,170,.35), transparent 60%), linear-gradient(180deg, rgba(0,0,0,.48) 0%, rgba(0,0,0,.36) 45%, rgba(0,0,0,.55) 100%);}
+    .wrap{width:min(900px, 90vw); margin:auto; padding:60px 0;}
+    h1,h2{font-family:'Playfair Display',serif;}
+    h1{font-size:clamp(36px,5vw,64px); text-align:center; margin-bottom:10px;}
+    p{text-align:center; font-size:18px; opacity:.9; max-width:650px; margin:10px auto 30px;}
+    .card{background:var(--glass); border:1px solid rgba(255,255,255,.08); border-radius:16px; padding:28px; backdrop-filter:blur(8px); margin:20px auto; text-align:center;}
+    .cta{display:inline-block; padding:14px 26px; border-radius:999px; font-weight:800; letter-spacing:.3px; text-decoration:none; color:#fff; background:linear-gradient(135deg, var(--violet), var(--violet-deep)); box-shadow:0 8px 24px rgba(28,14,60,.35), inset 0 0 0 1px rgba(255,255,255,.08); transition:filter .3s ease;}
+    .cta.gold{background:linear-gradient(135deg, var(--gold), var(--gold-deep)); color:#251706;}
+    .cta:hover{filter:brightness(1.08);}
+    footer{text-align:center; font-size:14px; opacity:.8; padding:40px 0 80px;}
   </style>
 </head>
 <body>
-  <div class="bg-img"></div>
-  <div class="bg-overlay"></div>
-
   <main class="page">
-    <header>
-      <a class="brand" href="index.html"><img src="/assets/ciphertech-logo.png" alt="CipherTech Logo"></a>
-      <a class="cta" href="index.html">← Back to Home</a>
-    </header>
+    <div class="bg-overlay"></div>
+    <div class="wrap">
+      <h1>Eternal Voices™</h1>
+      <p>Secure Partner Checkout & Download Center – Powered by CipherTech</p>
 
-    <div class="card">
-      <h1>Partner Order Form</h1>
-      <p>Download the official Eternal Voices™ Partner Order Form below. Once completed, email it to <strong>ciphertechai1@gmail.com</strong> to begin your partnership onboarding.</p>
-      <a class="cta" href="CipherTech_Eternal_Voices_Partner_Order_Form_FINAL2.pdf" download>📄 Download Partner Order Form</a>
+      <div class="card">
+        <h2>Step 1: Download Partner Order Form</h2>
+        <p>Download the official Eternal Voices™ Partner Order Form to review terms and submit after checkout.</p>
+        <a class="cta gold" href="CipherTech_Eternal_Voices_Partner_Order_Form_FINAL2.pdf" download>⬇️ Download Partner Order Form (PDF)</a>
+      </div>
+
+      <div class="card">
+        <h2>Step 2: Secure Checkout</h2>
+        <p>Submit your partnership payment securely through Stripe below. Once complete, you’ll receive confirmation and setup details.</p>
+        <a class="cta" href="https://checkout.stripe.com/pay/cs_test_a1example" target="_blank" rel="noopener noreferrer">💳 Secure Partner Checkout – $300</a>
+      </div>
+
+      <footer>© <span id="year"></span> CipherTech. Eternal Voices™ is a trademark of CipherTech.</footer>
     </div>
-
-    <footer>© <span id="year"></span> CipherTech. Eternal Voices™ is a trademark of CipherTech.</footer>
   </main>
 
   <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
+    document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
