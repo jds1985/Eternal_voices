@@ -31,6 +31,7 @@
       border-radius: 12px;
       padding: 30px;
       box-shadow: 0 0 20px rgba(102, 252, 241, 0.2);
+      transition: opacity 0.6s ease, transform 0.6s ease;
     }
     h2 {
       color: #45a29e;
@@ -72,6 +73,29 @@
       padding: 30px 0 20px;
       border-top: 1px solid #1f2833;
     }
+
+    /* Thank-you screen */
+    #thankyou {
+      display: none;
+      text-align: center;
+      animation: fadeIn 1s ease forwards;
+    }
+    #thankyou h2 {
+      color: #66fcf1;
+      font-size: 1.8em;
+    }
+    #thankyou p {
+      color: #c5c6c7;
+      font-size: 1.1em;
+    }
+    #thankyou .cta {
+      margin-top: 20px;
+      display: inline-block;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
   </style>
 </head>
 <body>
@@ -80,30 +104,53 @@
     <h1>Eternal Voices Partner Program</h1>
   </header>
 
-  <main>
-    <h2>Join the Eternal Voices Partner Network</h2>
-    <p>
-      Thank you for your interest in partnering with CipherTech for the Eternal Voices Program.  
-      This partnership provides you access to exclusive AI memorial solutions, advanced voice reconstruction tools,  
-      and ongoing technical support to bring comfort and innovation to your clients.
-    </p>
+  <main id="content">
+    <div id="partner-section">
+      <h2>Join the Eternal Voices Partner Network</h2>
+      <p>
+        Thank you for your interest in partnering with CipherTech for the Eternal Voices Program.  
+        This partnership provides you access to exclusive AI memorial solutions, advanced voice reconstruction tools,  
+        and ongoing technical support to bring comfort and innovation to your clients.
+      </p>
 
-    <div class="btn-container">
-      <a class="cta" href="/CipherTech_Eternal_Voices_Partner_Order_Form_FINAL2.pdf" download>
-        📄 Download Partner Form
-      </a>
-      <a class="cta" 
-         href="https://buy.stripe.com/8x27sL849avWf7T2Lp9k407" 
-         target="_blank" 
-         rel="noopener noreferrer">
-         💳 Secure Partner Checkout – $300
-      </a>
+      <div class="btn-container">
+        <a class="cta" href="/CipherTech_Eternal_Voices_Partner_Order_Form_FINAL2.pdf" download>
+          📄 Download Partner Form
+        </a>
+        <a class="cta" 
+           href="https://buy.stripe.com/8x27sL849avWf7T2Lp9k407" 
+           target="_blank" 
+           rel="noopener noreferrer">
+           💳 Secure Partner Checkout – $300
+        </a>
+      </div>
+    </div>
+
+    <div id="thankyou">
+      <h2>Thank You for Joining Eternal Voices™</h2>
+      <p>
+        Your partnership order has been successfully processed.  
+        A confirmation email will arrive shortly from CipherTech.  
+        Welcome to our growing network of innovators shaping the future of remembrance.
+      </p>
+      <a class="cta" href="/">🏠 Return to Home</a>
     </div>
   </main>
 
   <footer>
     <p>© 2025 CipherTech | All Rights Reserved</p>
   </footer>
+
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const success = urlParams.get('success');
+
+    if (success === 'true') {
+      document.getElementById('partner-section').style.display = 'none';
+      document.getElementById('thankyou').style.display = 'block';
+      document.title = "Thank You | Eternal Voices Partner Program";
+    }
+  </script>
 
 </body>
 </html>
