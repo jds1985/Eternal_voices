@@ -72,13 +72,10 @@
 
     footer{padding:36px 0 80px; text-align:center; opacity:.9; font-size:14px}
     footer a{color:var(--ivory); text-decoration:none}
-
-    .hint{position:fixed; right:14px; bottom:14px; background:rgba(0,0,0,.45); border:1px solid rgba(255,255,255,.12); color:#fff; padding:10px 12px; border-radius:12px; font-size:12px; backdrop-filter:blur(6px)}
-    .hint b{color:var(--gold)}
   </style>
 </head>
 <body>
-  <div id="bgImg" class="bg-img" title="Click anywhere on the background to change it"></div>
+  <div id="bgImg" class="bg-img"></div>
   <div class="bg-overlay"></div>
 
   <input id="bgPicker" type="file" accept="image/*" style="display:none" />
@@ -88,7 +85,7 @@
     <div class="wrap">
       <header>
         <a class="brand" href="#top">
-          <img id="logoImg" src="https://i.imgur.com/uSjUTuS.png" alt="CipherTech Logo" title="Click to change logo" />
+          <img id="logoImg" src="https://i.imgur.com/uSjUTuS.png" alt="CipherTech Logo" />
         </a>
         <nav style="display:flex; gap:10px; flex-wrap:wrap;">
           <a class="cta" href="#partner">Request Partnership</a>
@@ -159,8 +156,6 @@
     </div>
   </main>
 
-  <div class="hint">Click <b>background</b> to change it • Click <b>logo</b> to change it • <a href="#" id="resetBtn" style="color:#fff; text-decoration:underline">Reset</a></div>
-
   <script>
     const BG_KEY = 'ev_bg_dataurl';
     const LOGO_KEY = 'ev_logo_dataurl';
@@ -177,7 +172,7 @@
     if(savedLogo){ logoImg.src = savedLogo; }
 
     document.addEventListener('click', (e)=>{
-      const withinCard = e.target.closest('.card, header, .cta, .hint, .steps, table, a, .brand');
+      const withinCard = e.target.closest('.card, header, .cta, .steps, table, a, .brand');
       if(!withinCard){ bgPicker.click(); }
     });
 
@@ -186,7 +181,7 @@
       if(!file) return;
       const dataUrl = await fileToDataURL(file);
       bgDiv.style.backgroundImage = `url(${dataUrl})`;
-      try{ localStorage.setItem(BG_KEY, dataUrl); }catch(err){ console.warn('Could not save background to localStorage', err); }
+      try{ localStorage.setItem(BG_KEY, dataUrl); }catch(err){ console.warn('Could not save background', err); }
       bgPicker.value = '';
     });
 
@@ -196,16 +191,8 @@
       if(!file) return;
       const dataUrl = await fileToDataURL(file);
       logoImg.src = dataUrl;
-      try{ localStorage.setItem(LOGO_KEY, dataUrl); }catch(err){ console.warn('Could not save logo to localStorage', err); }
+      try{ localStorage.setItem(LOGO_KEY, dataUrl); }catch(err){ console.warn('Could not save logo', err); }
       logoPicker.value = '';
-    });
-
-    resetBtn.addEventListener('click', (e)=>{
-      e.preventDefault();
-      localStorage.removeItem(BG_KEY);
-      localStorage.removeItem(LOGO_KEY);
-      bgDiv.style.backgroundImage = "url('https://i.imgur.com/e8lOzPW.jpeg')";
-      logoImg.src = "https://i.imgur.com/uSjUTuS.png";
     });
 
     function fileToDataURL(file){
